@@ -14,6 +14,34 @@ const watches = [
   {
     name: "Tissot PRX",
     images: Array.from({ length: 4 }, (_, i) => `images/tissot${i + 1}.jpg`)
+  },
+  {
+    name: "Metal Patek Philippe",
+    images: Array.from({ length: 3 }, (_, i) => `images/metal_patek${i + 1}.jpg`)
+  },
+  {
+    name: "Leather Patek Philippe",
+    images: Array.from({ length: 5 }, (_, i) => `images/leather_patek${i + 1}.jpg`)
+  },
+  {
+    name: "Audemars Piguet Royal Oak",
+    images: Array.from({ length: 3 }, (_, i) => `images/royal_oak${i + 1}.jpg`)
+  },
+  {
+    name: "Women's Original Watch",
+    images: Array.from({ length: 3 }, (_, i) => `images/women${i + 1}.jpg`)
+  },
+  {
+    name: "Cartier Santos Matte",
+    images: Array.from({ length: 4 }, (_, i) => `images/cartier${i + 1}.jpg`)
+  },
+  {
+    name: "Zara Metal (Original)",
+    images: Array.from({ length: 9 }, (_, i) => `images/zara${i + 1}.jpg`)
+  },
+  {
+    name: "Forecast Women Original",
+    images: Array.from({ length: 2 }, (_, i) => `images/forecast${i + 1}.jpg`)
   }
 ];
 
