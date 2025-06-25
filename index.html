@@ -15,15 +15,15 @@
       <img src="images/logo.jpg" alt="Tick & TILE Logo" style="height:32px;width:auto;vertical-align:middle;border-radius:8px;display:inline-block;margin-left:8px;" />
       <span style="font-size:1.1rem;vertical-align:middle;">Tick & TILE</span>
     </div>
-    <button class="navbar-toggle" aria-label="القائمة" onclick="document.querySelector('.navbar-links').classList.toggle('open')">
+    <button class="navbar-toggle" aria-label="القائمة" type="button">
       <span></span><span></span><span></span>
     </button>
     <ul class="navbar-links">
       <li><a href="#watchGrid">الساعات</a></li>
       <li><a href="#about">من نحن</a></li>
-      <li><a href="https://wa.me/201029699335" target="_blank">واتساب</a></li>
-      <li><a href="https://www.instagram.com/yourusername" target="_blank">إنستجرام</a></li>
-      <li><a href="https://www.tiktok.com/@yourusername" target="_blank">تيك توك</a></li>
+      <li><a href="https://wa.me/201029699335" target="_blank" aria-label="واتساب"><img src="images/icons8-whatsapp-48.png" alt="واتساب" style="height:22px;width:22px;vertical-align:middle;" /><span class="nav-label">واتساب</span></a></li>
+      <li><a href="https://www.instagram.com/tick_and_tile/" target="_blank" aria-label="إنستجرام"><img src="images/icons8-instagram-logo-94.png" alt="إنستجرام" style="height:22px;width:22px;vertical-align:middle;" /><span class="nav-label">إنستجرام</span></a></li>
+      <li><a href="https://www.tiktok.com/@tick_and_tile?_t=ZS-8xLKSxZGdnz&_r=1" target="_blank" aria-label="تيك توك"><img src="images/icons8-tiktok-94.png" alt="تيك توك" style="height:22px;width:22px;vertical-align:middle;" /><span class="nav-label">تيك توك</span></a></li>
     </ul>
   </nav>
 
@@ -73,12 +73,28 @@
   <script src="countdown.js"></script>
   <script>
     // Responsive navbar toggle for mobile
-    const toggleBtn = document.querySelector('.navbar-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', function() {
-        document.querySelector('.navbar-links').classList.toggle('open');
-      });
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.querySelector('.navbar-toggle');
+      const navLinks = document.querySelector('.navbar-links');
+      if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navLinks.classList.toggle('open');
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && e.target !== toggleBtn) {
+            navLinks.classList.remove('open');
+          }
+        });
+        // Optional: close menu on link click (for single page)
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+          });
+        });
+      }
+    });
   </script>
 </body>
 </html>

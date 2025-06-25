@@ -287,13 +287,23 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 56px;
 }
 .navbar-logo {
+  display: flex;
+  align-items: center;
   color: #ffd700;
   font-weight: bold;
-  font-size: 1.3rem;
-  padding: 0 18px;
-  line-height: 60px;
+  font-size: 1.1rem;
+  padding: 0 12px;
+  line-height: 56px;
+}
+.navbar-logo img {
+  height: 32px;
+  width: auto;
+  border-radius: 8px;
+  margin-left: 8px;
+  display: inline-block;
 }
 .navbar-toggle {
   display: none;
@@ -306,6 +316,7 @@ header h1 {
   border: none;
   cursor: pointer;
   margin-left: 8px;
+  z-index: 1100;
 }
 .navbar-toggle span {
   display: block;
@@ -351,9 +362,13 @@ header h1 {
   }
 }
 @media (max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+    min-height: 48px;
+  }
   .navbar-links {
     position: fixed;
-    top: 60px;
+    top: 56px;
     right: -100vw;
     width: 70vw;
     max-width: 320px;
@@ -364,7 +379,7 @@ header h1 {
     padding: 30px 18px;
     box-shadow: -2px 0 12px rgba(30,30,47,0.13);
     transition: right 0.3s;
-    z-index: 999;
+    z-index: 1099;
   }
   .navbar-links.open {
     right: 0;
@@ -373,7 +388,7 @@ header h1 {
     display: flex;
   }
   .navbar-logo {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0 10px;
   }
   .navbar-links li {
