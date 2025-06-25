@@ -1,44 +1,23 @@
-const phone = "201029699335"; // ← رقم واتسابك
+// ✅ رقم الواتساب
+const phone = "201029699335";
 
+// ✅ بيانات الساعات (مجمعة محليًا)
 const watches = [
   {
     name: "Metal Carier Skeleton",
-    images: [
-      "images/skeleton1.jpg",
-      "images/skeleton2.jpg",
-      "images/skeleton3.jpg",
-      "images/skeleton4.jpg"
-    ]
+    images: Array.from({ length: 4 }, (_, i) => `images/skeleton${i + 1}.jpg`)
   },
   {
     name: "Casio Metal",
-    images: [
-      "images/casio1.jpg",
-      "images/casio2.jpg",
-      "images/casio3.jpg",
-      "images/casio4.jpg",
-      "images/casio5.jpg",
-      "images/casio6.jpg",
-      "images/casio7.jpg",
-      "images/casio8.jpg",
-      "images/casio9.jpg",
-      "images/casio10.jpg",
-      "images/casio11.jpg",
-      "images/casio12.jpg",
-      "images/casio13.jpg"
-    ]
+    images: Array.from({ length: 13 }, (_, i) => `images/casio${i + 1}.jpg`)
   },
   {
     name: "Tissot PRX",
-    images: [
-      "images/tissot1.jpg",
-      "images/tissot2.jpg",
-      "images/tissot3.jpg",
-      "images/tissot4.jpg"
-    ]
+    images: Array.from({ length: 4 }, (_, i) => `images/tissot${i + 1}.jpg`)
   }
 ];
 
+// ✅ توليد البطاقات
 const watchGrid = document.getElementById("watchGrid");
 
 watches.forEach((watch, index) => {
@@ -71,19 +50,29 @@ watches.forEach((watch, index) => {
     });
     thumbsContainer.appendChild(thumb);
   });
-
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = -(y - centerY) / 20;
-    const rotateY = (x - centerX) / 20;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-  });
 });
+
+// ✅ كاونت داون (Countdown Timer)
+const countdownEl = document.getElementById("countdown");
+const deadline = new Date();
+deadline.setDate(deadline.getDate() + 3); // ينتهي العرض بعد 3 أيام
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = deadline - now;
+
+  if (distance <= 0) {
+    countdownEl.textContent = "انتهى العرض";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownEl.textContent = `${days} يوم : ${hours} ساعة : ${minutes} دقيقة : ${seconds} ثانية`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);

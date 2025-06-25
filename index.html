@@ -1,37 +1,84 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tick & TILE - تشكيلتنا من الساعات</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/logo.jpg" alt="Tick & TILE Logo" style="height:32px;width:auto;vertical-align:middle;border-radius:8px;display:inline-block;margin-left:8px;" />
+      <span style="font-size:1.1rem;vertical-align:middle;">Tick & TILE</span>
+    </div>
+    <button class="navbar-toggle" aria-label="القائمة" onclick="document.querySelector('.navbar-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-links">
+      <li><a href="#watchGrid">الساعات</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="https://wa.me/201029699335" target="_blank">واتساب</a></li>
+      <li><a href="https://www.instagram.com/yourusername" target="_blank">إنستجرام</a></li>
+      <li><a href="https://www.tiktok.com/@yourusername" target="_blank">تيك توك</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Header -->
   <header>
-    <img src="images/logo.jpg" alt="Tick & TILE Logo" class="logo">
-    <h1>Tick & TILE</h1>
-    <p>🕰️ تشكيلتنا المميزة من الساعات المعدنية الفاخرة</p>
+    <img src="images/logo.jpg" alt="Tick & TILE Logo" class="logo" style="max-width:90vw;height:auto;" />
+    <h1 style="font-size:2.2rem;margin:0.5em 0 0.2em 0;">Tick & TILE</h1>
+    <p style="font-size:1.1rem;">🕰️ تشكيلتنا المميزة من الساعات المعدنية الفاخرة</p>
   </header>
 
-  <section class="video-section">
-  <video controls autoplay muted loop
-         class="promo-video"
-         poster="images/logo.jpg">
-    <source src="video/video.mp4" type="video/mp4" />
-    متصفحك لا يدعم تشغيل الفيديو.
-  </video>
-</section>
+  <!-- ✅ Promo Section -->
+  <section class="promo-section">
+    <div class="promo-box">
+      <h2 style="font-size:1.3rem;">🎯 عرض خاص على ساعة Tissot PRX</h2>
+      <div class="promo-flex" style="flex-wrap:wrap;gap:18px;align-items:center;justify-content:center;">
+        <div style="flex:1 1 180px;min-width:160px;max-width:320px;">
+          <img src="images/tissot1.jpg" alt="Tissot PRX" class="promo-image" style="width:100%;max-width:320px;border-radius:12px;" />
+        </div>
+        <div style="flex:1 1 180px;min-width:160px;max-width:320px;">
+          <p class="price-box" style="font-size:1.1rem;">
+            <span class="old-price">1000 جنيه</span>
+            <span class="new-price">700 جنيه فقط</span>
+          </p>
+          <span class="discount" style="font-size:1rem;">٪30 خصم</span>
+          <p style="font-size:0.98rem;">⚡ سارع بالطلب قبل انتهاء العرض!</p>
+          <p class="countdown-text" style="font-size:0.98rem;">
+            ينتهي خلال: <span id="countdown">00:00:00</span>
+          </p>
+          <a class="whatsapp-btn" href="https://wa.me/201029699335?text=مرحبًا، أرغب في شراء ساعة Tissot PRX بسعر العرض" target="_blank" style="display:inline-block;width:100%;max-width:260px;">اطلب الآن عبر واتساب</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <section class="about-section">
-    <h2>من نحن</h2>
+  <!-- ✅ ساعات (يتم تعبئتها تلقائيًا لاحقًا) -->
+  <div class="watch-grid" id="watchGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:18px 4vw;"></div>
+
+  <!-- ✅ قسم من نحن -->
+  <section class="about-section" id="about" style="padding:18px 4vw;font-size:1rem;">
+    <h2 style="font-size:1.2rem;">من نحن</h2>
     <p><strong>Tick & TILE</strong> هي علامة تجارية مصرية متخصصة في تقديم ساعات معدنية عالية الجودة بتصاميم فريدة ومتميزة. نؤمن أن الساعة ليست فقط أداة لقياس الوقت، بل قطعة فنية تُعبّر عن الذوق والشخصية.</p>
     <p>نقدم لعملائنا تشكيلة مختارة بعناية من أفضل الساعات العالمية مثل <strong>Metal Carier Skeleton</strong>، <strong>Casio Metal</strong>، و<strong>Tissot PRX</strong> بأسعار تنافسية وخدمة توصيل سريعة داخل مصر.</p>
     <p>هدفنا هو أن نُصبح الوجهة الأولى لعشّاق الساعات في العالم العربي من خلال الجمع بين الذوق الراقي، الجودة، والسعر المناسب.</p>
   </section>
 
-  <div class="watch-grid" id="watchGrid"></div>
-
   <script src="script.js"></script>
+  <script src="countdown.js"></script>
+  <script>
+    // Responsive navbar toggle for mobile
+    const toggleBtn = document.querySelector('.navbar-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        document.querySelector('.navbar-links').classList.toggle('open');
+      });
+    }
+  </script>
 </body>
 </html>
